@@ -1,0 +1,7 @@
+2024-05-06 22:14:48.579  INFO ${sys} --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.len.beloggerspring.ExampleTests]: ExampleTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-06 22:14:48.655  INFO ${sys} --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.len.beloggerspring.BeLoggerSpringApplication for test class com.len.beloggerspring.ExampleTests
+2024-05-06 22:14:48.927  INFO ${sys} --- [    Test worker] c.l.b.ExampleTests                       : Starting ExampleTests using Java 17.0.10 with PID 16945 (started by angga in /home/angga/Documents/LEN/be-logger-spring-2)
+2024-05-06 22:14:48.928  INFO ${sys} --- [    Test worker] c.l.b.ExampleTests                       : No active profile set, falling back to 1 default profile: "default"
+2024-05-06 22:14:49.333  INFO ${sys} --- [    Test worker] c.l.b.ExampleTests                       : Started ExampleTests in 0.591 seconds (process running for 1.598)
+2024-05-06 22:14:49.874 ERROR ${sys} --- [    Test worker] c.l.b.c.LoggingImpl                      : Example Error
+2024-05-06 22:14:49.874  WARN ${sys} --- [    Test worker] c.l.b.c.LoggingImpl                      : Example Warning

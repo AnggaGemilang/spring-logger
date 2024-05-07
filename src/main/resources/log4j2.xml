@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status mengatur konfigurasi log level minum yang akan ditampilkan -->
+<!-- monitorInterval akan memeriksa apakah file konfigurasi telah berubah setiap 30 detik. Jika ada perubahan dalam file konfigurasi, Log4j2 akan memuat ulang konfigurasi yang baru. -->
+<Configuration status="info" monitorInterval="30">
+    <!-- Membuat Variabel -->
+    <Properties>
+        <Property name="LOG_PATH">target/logs</Property>
+        <Property name="ROLLING_FILE_NAME">application</Property>
+        <Property name="LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{${sys}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %msg%n%throwable
+        </Property>
+        <property name="LOG_LEVEL">debug</property>
+    </Properties>
+    <Appenders>
+        <!-- Digunakan untuk mengatur konfigurasi untuk menampilkan ke console -->
+        <!-- name menentukan identitas konfigurasi -->
+        <!-- target menentukan standar mengikuti system out -->
+        <Console name="Console" target="SYSTEM_OUT" >
+            <!-- Menentukan pattern dari logging -->
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <!-- Digunakan untuk mengatur penyimpanan log ke file -->
+        <!-- RollingFile digunakan ketika ingin merotasi file -->
+        <!-- File digunakan ketika ingin menyimpan hanya ke satu file -->
+        <!-- name menentukan identitas konfigurasi -->
+        <!-- filenName menentukan nama file current -->
+        <!-- filePattern menentukan nama file yang sudah dirolling -->
+        <RollingFile name="RollingFile" fileName="${LOG_PATH}/${ROLLING_FILE_NAME}.log"
+                     filePattern="${LOG_PATH}/${ROLLING_FILE_NAME}_%d{yyyy-MM-dd}.log">
+            <!-- Menentukan pattern dari logging -->
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <!-- Membuat ketika startup sistem akan mereset file dan memulai dari awal -->
+                <OnStartupTriggeringPolicy/>
+                <!-- Membuat rollover file ketika sudah beda hari -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- Membuat rollover file ketika sudah banyak umat -->
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <!-- Maksimal file yang terbuat dalam sehari adalah 10 -->
+            <DefaultRolloverStrategy max="10">
+                <Delete basePath="${LOG_PATH}" maxDepth="10">
+                    <!-- Menghapus file yang sudah satu bulan -->
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <!-- Menentukan root dari cakupan logger -->
+        <!-- level menentukan root project minimal log level -->
+        <!-- additivity menentukan apakah akan mengikuti konfigurasi lain selain dari file ini -->
+        <Root level="${LOG_LEVEL}" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
