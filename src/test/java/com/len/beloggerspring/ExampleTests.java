@@ -14,10 +14,12 @@ class ExampleTests {
 	@Test
 	void contextLoads() {
 		Assertions.assertSame(logging, logging2);
+		logging.setClass(ExampleTests.class);
+		logging2.setClass(ExampleTests.class);
+
 		logging.info("Example Info");
 		logging.warning("Example Warning");
 		logging.error("Example Error");
-		logging.debug("Example Debug");
 	}
 
 }

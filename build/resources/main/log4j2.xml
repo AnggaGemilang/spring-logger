@@ -6,9 +6,9 @@
     <Properties>
         <Property name="LOG_PATH">target/logs</Property>
         <Property name="ROLLING_FILE_NAME">application</Property>
-        <Property name="LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{${sys}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %msg%n%throwable
+        <Property name="LOG_PATTERN">
+            %clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[%t]}{faint} %clr{%5p} %clr{---}{faint} %clr{%logger{36}}{cyan} %clr{:}{faint} %msg%throwable%n
         </Property>
-        <property name="LOG_LEVEL">debug</property>
     </Properties>
     <Appenders>
         <!-- Digunakan untuk mengatur konfigurasi untuk menampilkan ke console -->
@@ -16,7 +16,7 @@
         <!-- target menentukan standar mengikuti system out -->
         <Console name="Console" target="SYSTEM_OUT" >
             <!-- Menentukan pattern dari logging -->
-            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <PatternLayout disableAnsi="false" pattern="${LOG_PATTERN}"/>
         </Console>
         <!-- Digunakan untuk mengatur penyimpanan log ke file -->
         <!-- RollingFile digunakan ketika ingin merotasi file -->
@@ -46,10 +46,14 @@
         </RollingFile>
     </Appenders>
     <Loggers>
+        <!-- Menentukan level debug untuk class tertentu -->
+        <Logger name="com.len.beloggerspring.BeLoggerSpringApplication" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
         <!-- Menentukan root dari cakupan logger -->
         <!-- level menentukan root project minimal log level -->
         <!-- additivity menentukan apakah akan mengikuti konfigurasi lain selain dari file ini -->
-        <Root level="${LOG_LEVEL}" additivity="false">
+        <Root level="info" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile"/>
         </Root>
