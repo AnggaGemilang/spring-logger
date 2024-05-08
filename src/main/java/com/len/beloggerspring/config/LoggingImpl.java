@@ -8,17 +8,14 @@ import org.springframework.stereotype.Component;
 public class LoggingImpl implements LoggingInterface {
 
     private static LoggingImpl instance;
-    private Logger logger;
+    private static Logger logger;
 
-    public static synchronized LoggingImpl getInstance() {
+    public static synchronized LoggingImpl getInstance(Class<?> context) {
         if (instance == null) {
             instance = new LoggingImpl();
         }
+        logger = LogManager.getLogger(context);
         return instance;
-    }
-
-    public void setClass(Class<?> instance) {
-        this.logger = LogManager.getLogger(instance);
     }
 
     @Override

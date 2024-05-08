@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.len.beloggerspring.ExampleClassTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T07:11:49" hostname="angga-ZenBook-UX425UAZ-UM425UAZ" time="0.734">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.len.beloggerspring.ExampleClassTests" time="0.734"/>
+  <system-out><![CDATA[2024-05-08 14:11:48.772 [Test worker]  INFO --- org.springframework.test.context.support.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.len.beloggerspring.ExampleClassTests]: ExampleClassTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-08 14:11:48.881 [Test worker]  INFO --- org.springframework.boot.test.context.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.len.beloggerspring.BeLoggerSpringApplication for test class com.len.beloggerspring.ExampleClassTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-08 14:11:49.246 [Test worker]  INFO --- com.len.beloggerspring.ExampleClassTests : Starting ExampleClassTests using Java 17.0.10 with PID 54053 (started by angga in /home/angga/Documents/LEN/spring-logger)
+2024-05-08 14:11:49.248 [Test worker]  INFO --- com.len.beloggerspring.ExampleClassTests : No active profile set, falling back to 1 default profile: "default"
+2024-05-08 14:11:49.893 [Test worker]  INFO --- com.len.beloggerspring.ExampleClassTests : Started ExampleClassTests in 0.897 seconds (process running for 2.21)
+2024-05-08 14:11:50.623 [Test worker]  INFO --- com.len.beloggerspring.ExampleClassTests : Example Info
+2024-05-08 14:11:50.623 [Test worker]  WARN --- com.len.beloggerspring.ExampleClassTests : Example Warning
+2024-05-08 14:11:50.624 [Test worker] ERROR --- com.len.beloggerspring.ExampleClassTests : Example Error
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

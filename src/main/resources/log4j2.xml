@@ -7,7 +7,7 @@
         <Property name="LOG_PATH">target/logs</Property>
         <Property name="ROLLING_FILE_NAME">application</Property>
         <Property name="LOG_PATTERN">
-            %clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[%t]}{faint} %clr{%5p} %clr{---}{faint} %clr{%logger{36}}{cyan} %clr{:}{faint} %msg%throwable%n
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %5p --- %logger{36} : %msg%throwable%n
         </Property>
     </Properties>
     <Appenders>
@@ -47,7 +47,7 @@
     </Appenders>
     <Loggers>
         <!-- Menentukan level debug untuk class tertentu -->
-        <Logger name="com.len.beloggerspring.BeLoggerSpringApplication" level="debug" additivity="false">
+        <Logger name="com.len.beloggerspring.ExampleService" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <!-- Menentukan root dari cakupan logger -->
