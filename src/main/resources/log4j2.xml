@@ -47,7 +47,7 @@
     </Appenders>
     <Loggers>
         <!-- Menentukan level debug untuk class tertentu -->
-        <Logger name="com.len.beloggerspring.ExampleService" level="debug" additivity="false">
+        <Logger name="com.len.beloggerspring.ExampleClassTests" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <!-- Menentukan root dari cakupan logger -->
